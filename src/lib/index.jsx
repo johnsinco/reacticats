@@ -1,18 +1,29 @@
 import React, { Component } from "react";
 
-class MySuperCoolComponent extends Component {
+class ReactiCats extends Component {
   handleClick = () => {
-    console.log("Click!");
+    this.forceUpdate();
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {catid: 11111}
+  }
+  componentWillMount() {
+    this.interval = setInterval(() => {
+      console.log("reloading...");
+      this.setState({catid: Math.floor(Math.random() * 100)});
+
+      this.forceUpdate();
+    }, 10000);
+  }
+
   render() {
-    const { color, children } = this.props;
+    var caturl = "http://thecatapi.com/api/images/get?format=src&type=gif&size=small&foo=" + this.state.catid;
     return (
-      <button onClick={this.handleClick} style={{ color }}>
-        {children}
-      </button>
+      <img src={caturl}></img>
     );
   }
 }
 
-export default MySuperCoolComponent;
+export default ReactiCats;

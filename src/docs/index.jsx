@@ -1,13 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
-import MyComponent from "../../lib";
+import ReactiCats from "../../lib";
 import "./styles.css";
 
 function Demo() {
   return (
     <div>
-      <h1>Demo with examples of the component</h1>
-      <MyComponent color="brown">Wow what a button</MyComponent>
+      <h1>Random Cats for your React Site!</h1>
+      <ReactiCats></ReactiCats>
     </div>
   );
 }
